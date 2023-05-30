@@ -3,6 +3,7 @@
 /* =============================================================== *\
    ACF - Blocks
 \* =============================================================== */
+
 add_action('acf/init', 'my_acf_blocks_init');
 
 function my_acf_blocks_init() {
@@ -18,8 +19,25 @@ function my_acf_blocks_init() {
 
 
 /* =============================================================== *\
+   Ajax Cart Fragments
+\* =============================================================== */
+
+add_filter('woocommerce_add_to_cart_fragments', 'ajax_add_to_cart_fragment');
+
+function ajax_add_to_cart_fragment($fragments) {
+    ob_start();
+    $fragments['#cart-count'] = '<span id="cart-count">' . WC()->cart->get_cart_contents_count() . '</span>';
+    $fragments['#ud-mini-cart-count'] = '<span id="ud-mini-cart-count">' . sprintf(_n('%d Artikel', '%d Artikel', WC()->cart->get_cart_contents_count()), WC()->cart->get_cart_contents_count()) . '</span>';
+    $fragments['#ud-mini-cart-total .woocommerce-Price-amount.amount'] = WC()->cart->get_cart_total();
+    ob_get_clean();
+    return $fragments;
+}
+
+
+/* =============================================================== *\
    UD Mini-Cart 
 \* =============================================================== */
+
 function enqueue_cart_show_ajax() {
     // wp_register_script( 'cart-show-ajax-js', get_template_directory_uri() . '/assets/js/cart-qty-ajax.js', array( 'jquery' ), '', true );
     wp_register_script('cart-show-ajax-js', get_template_directory_uri() . '/blocks/acf_mini-cart/block.js', array('jquery'), '', true);
