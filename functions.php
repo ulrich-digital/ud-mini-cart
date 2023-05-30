@@ -57,13 +57,6 @@ function update_item_from_cart() {
         if ($cart_item_key == $_POST['cart_item_key']) {
             $product = $cart_item['data'];
             WC()->cart->set_quantity($cart_item_key, $quantity, $refresh_totals = true);
-
-            /*
-			$quantity = $cart_item['quantity'];
-			$subtotal = WC()->cart->get_product_subtotal( $product, $cart_item['quantity'] );
-			$price = WC()->cart->get_product_price( $product );
-			*/
-
             /* https://rudrastyh.com/woocommerce/get-number-of-items-in-cart.html */
             $cart_count = sprintf(_n('%d Artikel', '%d Artikel', WC()->cart->get_cart_contents_count()), WC()->cart->get_cart_contents_count());
             $cart_count_int = WC()->cart->get_cart_contents_count();
