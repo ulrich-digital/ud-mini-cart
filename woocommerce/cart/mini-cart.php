@@ -70,7 +70,6 @@ if ( !is_admin() ) {
                                         </span>
                                     </div><!-- .ud-wc-block-cart-item__prices -->
 
-
                                     <div class="ud-product-quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
                                         <?php
                                         if ( $_product->is_sold_individually() ) {
@@ -118,7 +117,6 @@ if ( !is_admin() ) {
                                             ?>
                                         </div><!-- .ud-wc-block-cart-item__quantity -->
                                         <?php
-
                                         // echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity . '&times; ' . $product_price, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
                                         // echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                         ?>
@@ -135,7 +133,6 @@ if ( !is_admin() ) {
                             <?php
                         }
                     }
-
                     // do_action( 'woocommerce_mini_cart_contents' );
                     ?>
                 </tbody>
