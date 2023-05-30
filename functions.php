@@ -71,6 +71,7 @@ function update_item_from_cart() {
             $price = $product->get_price();
         }
     }
+	
     WC()->cart->calculate_totals();
     WC()->cart->maybe_set_cart_cookies();
     $cart_total = WC()->cart->get_cart_total();
@@ -85,8 +86,6 @@ function update_item_from_cart() {
     $response['cart_total'] = $cart_total;
     echo json_encode($response);
     wp_die();
-    // return true;
-
 }
 
 add_action('wp_ajax_update_item_from_cart', 'update_item_from_cart');
