@@ -5,6 +5,22 @@ da Ajaxing über Klassen
 
 */
 
+:root {
+    --dunkelbraun: #524131;
+    --swissnessred: #E40115;
+    --lightgrey: #F2F2F2;
+    /* --lightgrey: rgba(255,255,255,.7); */
+    --angle-block: .5deg;
+    --drop-shadow-produkt: 10px 10px 15px var(--dunkelbraun);
+    --hover-transition: 250ms;
+    --slight-radius: 2px;
+    --shadow_color: #00000044;
+    --shadow_3: 3px 3px 0 var(--shadow_color);
+    --transition_time_01: 0.1s;
+    --schrift-size: 1.2em;
+    --block-margin: 100px;
+}
+
 .ud-wc-block-mini-cart {
     display: inline;
 }
