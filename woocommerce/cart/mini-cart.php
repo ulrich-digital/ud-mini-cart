@@ -79,7 +79,12 @@ if ( !is_admin() ) {
                                             $min_quantity = 0;
                                             $max_quantity = $_product->get_max_purchase_quantity();
                                         }
-
+			
+                                        // workaround for disabled stock managment
+                                        if ( $max_quantity < 0 ) {
+                                            $max_quantity = 9999999999;
+                                        } // endif
+				
                                         $product_quantity = woocommerce_quantity_input(
                                             array(
                                                 'input_name'   => "cart[{$cart_item_key}][qty]",
